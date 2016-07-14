@@ -2,8 +2,8 @@
 // referenced from:http://zellwk.com/blog/crud-express-mongodb/
 
 const express = require('express')
-const bodyParser= require('body-parser')
 const app = express()
+const bodyParser= require('body-parser')
 const MongoClient = require('mongodb').MongoClient
 var db
 app.set('view engine', 'ejs')
@@ -37,13 +37,13 @@ app.post('/quotes', (req, res) => {
 
 app.put('/quotes', (req, res) => {
   db.collection('quotes')
-  .findOneAndUpdate({name: 'Yoda'}, {
+  .findOneAndUpdate({name: 'yoda'}, {
     $set: {
       name: req.body.name,
       quote: req.body.quote
     }
   }, {
-    sort: {_id: -1},
+    sort: {_id: -1}, //search through db, starting fr newest entry
     upsert: true
     //insert (or save) if no entries are found
   }, (err, result) => {
