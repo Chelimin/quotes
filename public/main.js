@@ -1,7 +1,6 @@
 var update = document.getElementById('update')
 
 update.addEventListener('click', function () {
-  console.log('hello')
   // Send PUT Request here
   fetch('quotes', {
     method: 'put',
@@ -23,14 +22,13 @@ update.addEventListener('click', function () {
 var del = document.getElementById('delete')
 
 del.addEventListener('click', function () {
-    console.log('bye')
   fetch('quotes', {
     method: 'delete',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      'name': 'Darth'
+      'name': 'Darth Vader'
     })
   }).then(function (response) {
     window.location.reload()
